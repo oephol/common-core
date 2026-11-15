@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oezzahi <oezzahi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: oezzahi <oezzahi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/13 19:58:25 by oezzahi           #+#    #+#             */
-/*   Updated: 2026/10/21 14:45:32 by oezzahi          ###   ########.fr       */
+/*   Updated: 2026/10/27 14:41:19 by oezzahi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static size_t	ft_count_strs(char const *s, char c)
 	return (num);
 }
 
-static size_t	ft_strlen_local(char const *s, char c)
+static size_t	ft_word_len(char const *s, char c)
 {
 	size_t	i;
 
@@ -41,7 +41,7 @@ static size_t	ft_strlen_local(char const *s, char c)
 	return (i);
 }
 
-static size_t	ft_strcpy(char *dest, char const *s, char c, size_t i)
+static size_t	ft_cpy_word(char *dest, char const *s, char c, size_t i)
 {
 	size_t	j;
 
@@ -58,10 +58,10 @@ static size_t	ft_strcpy(char *dest, char const *s, char c, size_t i)
 
 static char	**ft_free(char **list, size_t index)
 {
-	while (index >= 0)
+	while (index > 0)
 	{
-		free(list[index]);
 		index--;
+		free(list[index]);
 	}
 	free(list);
 	return (NULL);
@@ -76,21 +76,20 @@ char	**ft_split(char const *s, char c)
 	if (!s)
 		return (NULL);
 	list = malloc((ft_count_strs(s, c) + 1) * sizeof(char *));
+	if (!list)
+		return (NULL);
 	i = 0;
 	index = 0;
-	while (list && s[i])
+	while (s[i])
 	{
 		while (s[i] == c)
 			i++;
 		if (s[i])
-			list[index] = malloc(ft_strlen_local((char *)s + i, c) + 1);
+			list[index] = malloc(ft_word_len((char *)s + i, c) + 1);
 		if (s[i] && !list[index])
 			return (ft_free(list, index));
 		if (s[i])
-		{
-			i = ft_strcpy(list[index], s, c, i);
-			index++;
-		}
+			i = ft_cpy_word(list[index++], s, c, i);
 	}
 	list[index] = NULL;
 	return (list);

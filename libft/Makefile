@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: oezzahi <oezzahi@student.42.fr>            +#+  +:+       +#+         #
+#    By: oezzahi <oezzahi@student.1337.ma>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/10/13 17:08:05 by oezzahi           #+#    #+#              #
-#    Updated: 2026/10/21 11:14:00 by oezzahi          ###   ########.fr        #
+#    Updated: 2026/10/31 09:38:38 by oezzahi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,14 +32,15 @@ OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJ) libft.h
+$(NAME): $(OBJ)
 	$(AR) $(ARFLAGS) $(NAME) $^
 
 %.o: %.c libft.h
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJ)
+	cd dd
+	touch llls
 
 fclean: clean
 	rm -f $(NAME)
@@ -47,4 +48,3 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re
-

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oezzahi <oezzahi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: oezzahi <oezzahi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/15 14:34:59 by oezzahi           #+#    #+#             */
-/*   Updated: 2026/10/21 14:49:27 by oezzahi          ###   ########.fr       */
+/*   Updated: 2026/10/26 14:16:12 by oezzahi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ void	ft_putnbr_fd(int n, int fd)
 	long	nbr;
 
 	nbr = n;
-	if (fd < 0)
-		return ;
 	if (nbr < 0)
 	{
 		ft_putchar_fd('-', fd);
