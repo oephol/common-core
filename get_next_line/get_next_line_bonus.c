@@ -6,7 +6,7 @@
 /*   By: oezzahi <oezzahi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/09 08:59:29 by oezzahi           #+#    #+#             */
-/*   Updated: 2026/11/15 10:11:09 by oezzahi          ###   ########.fr       */
+/*   Updated: 2026/11/16 16:14:58 by oezzahi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,6 @@ char	*get_next_line(int fd)
 	if (!node->buf.buffer)
 		node->buf.buffer = malloc((size_t)BUFFER_SIZE);
 	if (!node->buf.buffer)
-		return (NULL);
+		return (ft_free(NULL, node, 0, head);
 	return (ft_read_line(fd, node, &head));
 }
