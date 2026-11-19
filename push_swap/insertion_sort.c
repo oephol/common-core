@@ -24,28 +24,29 @@ void	insertion_sort(t_stack *a, t_stack *b, t_op_lst	*ops)
 
 	loop = 1;
 	max = ft_get_max(a);
+	print_list(a);
 	while (loop)
 	{
 		loop = 0;
 		while (a->head->n < a->head->next->n)
 		{
 			rotate(a);
-			link_op_lst(ops, "ra");
+			ops->tail = link_op_lst(ops, "ra");
 		}
 		if (a->head->n != max)
 		{
 			loop = 1;
 			pop_push(a, b);
-			link_op_lst(ops, "pb");
+			ops->tail = link_op_lst(ops, "pb");
 			while (b->head->n > a->head->n)
 			{
 				rotate (a);
-				link_op_lst(ops, "ra");
+				ops->tail = link_op_lst(ops, "ra");
 			}
 			pop_push(b, a);
-			link_op_lst(ops, "pa");
+			ops->tail = link_op_lst(ops, "pa");
 			rotate(a);
-			link_op_lst(ops, "ra");
+			ops->tail = link_op_lst(ops, "ra");
 		}
 	}
 }

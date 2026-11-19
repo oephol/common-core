@@ -14,9 +14,11 @@ int	main()
 {
 	int arr[] = {1, -8, 10, 15, 2, 0, 12, -13, 5, -15};
 	int i = 0;
-	t_stack	a = {0};
+	t_stack	a;
 	t_node *temp;
 
+	a.head = a.tail = NULL;
+	a.size = 0;
 	while (i < 10)
 	{
 		push_top(&a, ft_new_node(arr[i]));

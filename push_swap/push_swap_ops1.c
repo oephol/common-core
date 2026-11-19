@@ -38,7 +38,8 @@ t_node	*pop_top(t_stack *s)
 		return (NULL);
 	temp = s->head;
 	s->head = s->head->next;
-	s->head->prev = NULL;
+	if (s->head)
+		s->head->prev = NULL;
 	temp->next = NULL;
 	if (s->size == 1)
 		s->tail = NULL;
@@ -50,9 +51,23 @@ void	push_top(t_stack *s, t_node *node)
 	if (!node)
 		return ;
 	node->next = s->head;
-	s->head->prev = node;
+	if (s->head)
+		s->head->prev = node;
 	s->head = node;
 	if (s->size == 0)
 		s->tail = node;
 	s->size++;
+}
+
+
+void print_list(t_stack *a)
+{
+	t_node *temp = a->head;
+
+	while (temp)
+	{
+		printf("%d, ", temp->n);
+		temp = temp->next;
+	}
+	printf("\n");
 }

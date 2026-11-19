@@ -58,4 +58,11 @@ char	*ft_strdup(const char *s);
 t_op	*link_op_lst(t_op_lst *lst, char *s);
 void	ft_print_ops(t_op_lst *ops);
 
+
+
+
+
+// TODO remove
+void print_list(t_stack *a);
+
 #endif
