@@ -21,6 +21,11 @@ typedef struct s_node
 
 t_node	*ft_new_node(int n);
 void	ft_clear(t_stack *s);
-void	*ft_add_back(t_stack *s, int n);
+void	push_top(t_stack *s, t_node *node);
+void	push_bottom(t_stack *s, t_node *node);
+void	swap(t_stack *s);
+t_node	*pop_top(t_stack *s);
+t_node	*pop_bottom(t_stack *s);
+void	pop_push(t_stack *a, t_stack *b);
 
 #endif

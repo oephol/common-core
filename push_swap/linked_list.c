@@ -27,23 +27,18 @@ void	ft_clear(t_stack *s)
 	s->size = 0;
 }
 
-void	*ft_add_back(t_stack *s, int n)
+void	push_bottom(t_stack *s, t_node *node)
 {
-	t_node	*new;
-
-	new = ft_new_node(n);
-	if (!new)
-		return (NULL);
 	if (!s->head)
 	{
-		s->head = new;
+		s->head = node;
 		s->tail = s->head;
 		s->size++;
-		return (new);
+		return ;
 	}
-	s->tail->next = new;
+	s->tail->next = node;
 	s->tail->next->prev = s->tail;
 	s->tail = s->tail->next;
 	s->size++;
-	return (new);
+	return ;
 }

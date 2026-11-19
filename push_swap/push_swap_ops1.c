@@ -15,7 +15,7 @@ void	swap(t_stack *s)
 	if (s->size == 2)
 		s->tail = s->head->next;
 }
-t_node	*pop_back(t_stack *s)
+t_node	*pop_bottom(t_stack *s)
 {
 	t_node	*temp;
 
@@ -30,7 +30,7 @@ t_node	*pop_back(t_stack *s)
 	return (temp);
 }
 
-t_node	*pop(t_stack *s)
+t_node	*pop_top(t_stack *s)
 {
 	t_node	*temp;
 
@@ -45,7 +45,7 @@ t_node	*pop(t_stack *s)
 	return (temp);
 }
 
-void	push(t_stack *s, t_node *node)
+void	push_top(t_stack *s, t_node *node)
 {
 	if (!node)
 		return ;
@@ -55,14 +55,4 @@ void	push(t_stack *s, t_node *node)
 	if (s->size == 0)
 		s->tail = node;
 	s->size++;
-}
-
-void	pop_push(t_stack *a, t_stack *b)
-{
-	t_node	*node;
-
-	if (a->size == 0)
-		return ;
-	node = pop(a);
-	push(b, node);
 }
