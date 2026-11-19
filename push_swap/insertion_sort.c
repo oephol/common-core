@@ -9,7 +9,7 @@ static int	ft_get_max(t_stack *a)
 	max = a->head->n;
 	while (i < a->size)
 	{
-        printf("max: %d, head: %d\n", max, a->head->n);
+        //printf("max: %d, head: %d\n", max, a->head->n);
 		if (max < a->head->n)
 			max = a->head->n;
 		i++;
@@ -33,6 +33,7 @@ void	insertion_sort(t_stack *a, t_stack *b, t_op_lst	*ops)
 		{
 			rotate(a);
 			ops->tail = link_op_lst(ops, "ra");
+            print_list(a);
 		}
 		if (a->head->n != max)
 		{
@@ -49,5 +50,7 @@ void	insertion_sort(t_stack *a, t_stack *b, t_op_lst	*ops)
 			rotate(a);
 			ops->tail = link_op_lst(ops, "ra");
 		}
+        rotate(a);
+        ops->tail = link_op_lst(ops, "ra");
 	}
 }

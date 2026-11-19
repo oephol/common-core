@@ -11,8 +11,10 @@ void	swap(t_stack *s)
 	s->head->next = s->head->prev;
 	s->head->prev = NULL;
 	s->head->next->next = temp;
-	s->head->next->prev = s->head->next;
-	if (s->size == 2)
+    s->head->next->prev = s->head;
+    if (temp)
+        temp->prev = s->head->next;
+	else
 		s->tail = s->head->next;
 }
 
@@ -26,6 +28,8 @@ void	rotate(t_stack *s)
 {
 	t_node	*node;
 	
+    if (s->size < 2)
+        return ;
 	node = pop_top(s);
 	push_bottom(s, node);
 }
@@ -51,6 +55,8 @@ void	reverse_rotate(t_stack *s)
 	t_node	*top;
 	t_node	*bottom;
 
+    if (s->size < 2)
+        return ;
 	top = pop_top(s);
 	bottom = pop_bottom(s);
 	push_bottom(s, top);

@@ -10,9 +10,9 @@ t_node	*pop_top(t_stack *s)
 	s->head = s->head->next;
 	if (s->head)
 		s->head->prev = NULL;
-	temp->next = NULL;
-	if (s->size == 1)
+	else
 		s->tail = NULL;
+    temp->next = NULL;
     s->size--;
 	return (temp);
 }
@@ -23,12 +23,14 @@ t_node	*pop_bottom(t_stack *s)
 
 	if (s->size == 0)
 		return (NULL);
-	temp = s->head;
-	s->head = s->head->next;
-	s->head->prev = NULL;
-	temp->next = NULL;
-	if (s->size == 1)
-		s->head = NULL;
+	temp = s->tail;
+	s->tail = s->tail->prev;
+    if (s->tail)
+	    s->tail->next = NULL;
+    else
+        s->head = NULL;
+	temp->prev = NULL;
+    s->size--;
 	return (temp);
 }
 
@@ -47,6 +49,8 @@ void	push_top(t_stack *s, t_node *node)
 
 void	push_bottom(t_stack *s, t_node *node)
 {
+    if (!node)
+        return ;
 	if (!s->head)
 	{
 		s->head = node;
