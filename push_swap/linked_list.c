@@ -26,19 +26,3 @@ void	ft_clear(t_stack *s)
 	s->tail = NULL;
 	s->size = 0;
 }
-
-void	push_bottom(t_stack *s, t_node *node)
-{
-	if (!s->head)
-	{
-		s->head = node;
-		s->tail = s->head;
-		s->size++;
-		return ;
-	}
-	s->tail->next = node;
-	s->tail->next->prev = s->tail;
-	s->tail = s->tail->next;
-	s->size++;
-	return ;
-}

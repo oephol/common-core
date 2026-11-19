@@ -1,5 +1,21 @@
 #include "push_swap.h"
 
+void	swap(t_stack *s)
+{
+	t_node	*temp;
+
+	if (s->size < 2)
+		return ;
+	s->head = s->head->next;
+	temp = s->head->next;
+	s->head->next = s->head->prev;
+	s->head->prev = NULL;
+	s->head->next->next = temp;
+	s->head->next->prev = s->head->next;
+	if (s->size == 2)
+		s->tail = s->head->next;
+}
+
 void	swap_swap(t_stack *a, t_stack *b)
 {
 	swap(a);

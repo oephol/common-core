@@ -9,6 +9,7 @@ static int	ft_get_max(t_stack *a)
 	max = a->head->n;
 	while (i < a->size)
 	{
+        printf("max: %d, head: %d\n", max, a->head->n);
 		if (max < a->head->n)
 			max = a->head->n;
 		i++;
