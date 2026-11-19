@@ -9,7 +9,7 @@ t_node	*ft_new_node(int n)
 		return (NULL);
 	new->next = NULL;
 	new->prev = NULL;
-	new->num = n;
+	new->n = n;
 	return (new);
 }
 
