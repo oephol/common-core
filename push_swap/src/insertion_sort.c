@@ -10,7 +10,7 @@ void	insertion_sort(t_stack *a, t_stack *b, t_op_lst	*ops)
 	printf("%d\n", max->n);
 	while (i < a->size)
 	{
-		j = 0;
+		//j = 0;
 		while (a->head->n < a->head->next->n)
 			ft_do_op("ra", ops, a, b);
 		if (a->head != max)

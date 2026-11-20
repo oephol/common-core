@@ -23,6 +23,19 @@ t_op	*link_op_lst(t_op_lst *lst, char *s)
 	return (new);
 }
 
+void	ft_clear_ops(t_op_lst *ops)
+{
+	t_op *temp;
+
+	while (ops->head)
+	{
+		temp = ops->head;
+		ops->head = ops->head->next;
+		free(temp->op);
+		free(temp);
+	}
+}
+
 void	ft_print_ops(t_op_lst *ops)
 {
 	int	i;
@@ -40,6 +53,7 @@ void	ft_print_ops(t_op_lst *ops)
 		write(1, "\n", 1);
 		temp = temp->next;
 	}
+	ft_clear_ops(ops);
 }
 
 static int	ft_record_op_second(char *op)
