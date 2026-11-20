@@ -51,14 +51,16 @@ void	reverse_rotate_rotate(t_stack *a, t_stack *b);
 
 //sorting functions
 void	insertion_sort(t_stack *a, t_stack *b, t_op_lst	*ops);
+void	bubble_sort(t_stack *a, t_op_lst *ops);
 
 //utils
 int		ft_atoi(const char *nptr);
 char	*ft_strdup(const char *s);
 t_op	*link_op_lst(t_op_lst *lst, char *s);
 void	ft_print_ops(t_op_lst *ops);
+t_node	*ft_get_max(t_stack *s);
 
-
+void	ft_do_op(char *op, t_op_lst *ops, t_stack *a, t_stack *b);
 
 
 
