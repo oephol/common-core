@@ -79,4 +79,17 @@ void	selection_sort(int *arr, int n)
 	}
 }
 
+int	main(void)
+{
+	int	arr[] = {1, -2, -4, 15, 10, 4, 2, 0, 9, -10, 20, -3, 5};
+	int	size = sizeof(arr)/sizeof(*arr);
+	int	i = 0;
 
+	//bubble_sort(arr, size);
+	//insertion_sort(arr, size);
+	selection_sort(arr, size);
+	printf("[");
+	while (i < size - 1)
+		printf("%d, ", arr[i++]);
+	printf("%d]\n", arr[i]);
+}
