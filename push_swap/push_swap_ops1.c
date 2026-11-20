@@ -1,11 +1,9 @@
 #include "push_swap.h"
 
-t_node	*pop_top(t_stack *s)
+int	pop_top(t_stack *s)
 {
-	t_node	*temp;
+	int	temp;
 
-	if (s->size == 0)
-		return (NULL);
 	temp = s->head;
 	s->head = s->head->next;
 	if (s->head)
