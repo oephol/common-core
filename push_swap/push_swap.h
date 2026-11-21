@@ -32,6 +32,16 @@ typedef	struct s_op_lst
 	t_op	*tail;
 }	t_op_lst;
 
+typedef struct s_flags
+{
+	int	simple;
+	int	medium;
+	int	complex;
+	int	adaptive;
+	int	bench;
+} t_flags;
+
+
 //linked list operations
 t_node	*ft_new_node(int n);
 void	ft_clear(t_stack *s);

@@ -14,7 +14,7 @@ void insertion_sort(t_stack *a, t_stack *b, t_op_lst *ops)
 	{
 		swaped = 0;
 		j = 0;
-		while (j < a->size)
+		while (j < a->size - i)
 		{
 			while (a->head->n > a->head->next->n && a->head != max)
 			{
@@ -23,7 +23,6 @@ void insertion_sort(t_stack *a, t_stack *b, t_op_lst *ops)
 				while (b->head->n > a->head->n)
 					ft_do_op("ra", ops, a, b);
 				ft_do_op("pa", ops, a, b);
-				ft_do_op("ra", ops, a, b);
 			}
 			ft_do_op("ra", ops, a, b);
 			j++;

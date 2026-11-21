@@ -5,8 +5,8 @@ void	push_swap(t_stack *a)
 	t_stack		b = {NULL, NULL, 0};
 	t_op_lst	ops = {NULL, NULL};
 
-	insertion_sort(a, &b, &ops);
-	//bubble_sort(a, &ops);
+	//insertion_sort(a, &b, &ops);
+	bubble_sort(a, &ops);
 	ft_print_ops(&ops);
 	ft_clear(&b);
 }
