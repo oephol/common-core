@@ -69,7 +69,7 @@ int ft_read_input(t_stack *a, t_flags *flags, char **av, int ac)
 	{
 		if (av[i][0] == '-' && av[i][1] == '-')
 		{
-			ft_set_flags(av + i + 2, flags);
+			ft_set_flags(av[i] + 2, flags);
 			i++;
 		}
 		else
@@ -79,13 +79,14 @@ int ft_read_input(t_stack *a, t_flags *flags, char **av, int ac)
 				n = ft_atoi(av[i]);
 				if (!ft_isnumeric(av[i]) || ft_duplicate(a, n))
 					return (-1);
-				push_bottom(&a, ft_new_node(n));
+				push_bottom(a, ft_new_node(n));
 				i++;
 			}
 		}
 		if (av)
 		i++;
 	}
+	return (0);
 }
 
 float ft_disorder(t_stack *a)

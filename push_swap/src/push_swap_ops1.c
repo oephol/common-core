@@ -64,15 +64,3 @@ void	push_bottom(t_stack *s, t_node *node)
 	s->size++;
 	return ;
 }
-
-void print_list(t_stack *a)
-{
-	t_node *temp = a->head;
-
-	while (temp)
-	{
-		printf("%d, ", temp->n);
-		temp = temp->next;
-	}
-	printf("\n");
-}

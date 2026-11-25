@@ -33,6 +33,7 @@ char	*ft_strdup(const char *s);
 t_op	*link_op_lst(t_op_lst *lst, char *s);
 void	ft_print_ops(t_op_lst *ops);
 t_node	*ft_get_max(t_stack *s);
+int 	ft_read_input(t_stack *a, t_flags *flags, char **av, int ac);
 
 void	ft_do_op(char *op, t_op_lst *ops, t_stack *a, t_stack *b);
 int 	is_sorted(t_stack *a);
