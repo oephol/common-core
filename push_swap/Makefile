@@ -8,6 +8,7 @@ SRC =	src/bubble_sort.c \
 		src/insertion_sort.c \
 		src/push_swap_ops2.c \
 		src/recording_ops.c \
+		src/push_swap_utils2.c \
 		push_swap.c
 
 OBJ = $(SRC:.c=.o)

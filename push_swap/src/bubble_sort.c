@@ -15,20 +15,19 @@ void bubble_sort(t_stack *a, t_op_lst *ops)
 	{
 		j = 0;
 		// swaped = 0;
-		while (j < a->size - i)
+		while (j < a->size)
 		{
 			if (a->head->n > a->head->next->n && a->head != max)
 			{
-				// swaped = 1;
 				ft_do_op("sa", ops, a, NULL);
 				ft_do_op("ra", ops, a, NULL);
 			}
 			else
 				ft_do_op("ra", ops, a, NULL);
 			j++;
+			if (is_sorted(a))
+				return ;
 		}
 		i++;
 	}
-	while (a->tail != max)
-		ft_do_op("ra", ops, a, NULL);
 }

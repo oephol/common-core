@@ -79,6 +79,22 @@ void	selection_sort(int *arr, int n)
 	}
 }
 
+void	merge(int *arr, int n)
+{
+	
+}
+
+void	merge_sort(int *arr, int n)
+{
+	int mid = n / 2;
+
+	if (n < 2)
+		return ;
+	merge_sort(arr, mid);
+	merge_sort(arr + mid + 1, n - mid);
+	merge(arr, n);
+}
+
 int	main(void)
 {
 	int	arr[] = {1, -2, -4, 15, 10, 4, 2, 0, 9, -10, 20, -3, 5};

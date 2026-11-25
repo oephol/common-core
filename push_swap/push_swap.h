@@ -4,43 +4,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
-
-//structs/////////////////////
-typedef struct s_node
-{
-	int				n;
-	struct s_node	*next;
-	struct s_node	*prev;
-}	t_node;
-
-typedef struct s_stack
-{
-	t_node	*head;
-	t_node	*tail;
-	int		size;
-}	t_stack;
-
-typedef struct s_op
-{
-	char		*op;
-	struct s_op	*next;
-}	t_op;
-
-typedef	struct s_op_lst
-{
-	t_op	*head;
-	t_op	*tail;
-}	t_op_lst;
-
-typedef struct s_flags
-{
-	int	simple;
-	int	medium;
-	int	complex;
-	int	adaptive;
-	int	bench;
-} t_flags;
-
+# include "structs.h"
 
 //linked list operations
 t_node	*ft_new_node(int n);
@@ -71,7 +35,7 @@ void	ft_print_ops(t_op_lst *ops);
 t_node	*ft_get_max(t_stack *s);
 
 void	ft_do_op(char *op, t_op_lst *ops, t_stack *a, t_stack *b);
-
+int 	is_sorted(t_stack *a);
 
 
 // TODO remove

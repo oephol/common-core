@@ -1,17 +1,17 @@
 #include "push_swap.h"
 
-int	ft_strcmp(const char *s1, const char *s2)
+int ft_strcmp(const char *s1, const char *s2)
 {
-	int	i;
+	int i;
 
 	i = 0;
 	while (s1[i] && s1[i] == s2[i])
 		i++;
 	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }
-int	ft_set_flags(char *s, t_flags *flags)
+int ft_set_flags(char *s, t_flags *flags)
 {
-	int	i;
+	int i;
 
 	i = 0;
 	if (!ft_strcmp(s, "simple"))
@@ -29,10 +29,10 @@ int	ft_set_flags(char *s, t_flags *flags)
 	return (1);
 }
 
-int	ft_isnumeric(char *s)
+int ft_isnumeric(char *s)
 {
-	int	i;
-	
+	int i;
+
 	i = 0;
 	if (s[i] == '-' || s[i] == '+')
 		i++;
@@ -45,9 +45,9 @@ int	ft_isnumeric(char *s)
 	return (1);
 }
 
-int	ft_get_args(t_stack *a, char **av, int ac, t_flags *flags)
+int ft_get_args(t_stack *a, char **av, int ac, t_flags *flags)
 {
-	int	i;
+	int i;
 
 	i = 1;
 	while (i < ac)
@@ -59,28 +59,37 @@ int	ft_get_args(t_stack *a, char **av, int ac, t_flags *flags)
 		}
 		else
 		{
-			while(i < ac && ft_isnumeric(av[i]))
+			while (i < ac && ft_isnumeric(av[i]))
 			{
 				push_bottom(&a, ft_new_node(ft_atoi(av[i])));
 				i++;
 			}
 		}
+		if (av)
 		i++;
 	}
 }
 
-float	ft_disorder(t_stack *a)
+float ft_disorder(t_stack *a)
 {
-	int	disorder;
-	t_node	*temp;
+	int disorder;
+	int pairs;
+	t_node *temp1;
+	t_node *temp2;
 
-	temp = a->head;
+	temp1 = a->head;
 	disorder = 0;
-	while (temp && temp->next)
+	while (temp1)
 	{
-		if (temp->n > temp->next->n)
-			disorder++;
-		temp = temp->next;
+		temp2 = a->head;
+		while (temp2)
+		{
+			pairs++;
+			if (temp1->n > temp2->n)
+				disorder++;
+			temp2 = temp2->next;
+		}
+		temp1 = temp1->next;
 	}
-	return ((float)(disorder / a->size));
+	return ((float)disorder / pairs);
 }
