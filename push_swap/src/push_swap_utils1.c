@@ -46,44 +46,20 @@ char	*ft_strdup(const char *s)
 	return (dup);
 }
 
-t_op	*link_op_lst(t_op_lst *lst, char *s)
+t_node	*ft_get_max(t_stack *s)
 {
-	t_op	*new;
+	t_node	*temp;
+	t_node	*max;
 
-	if (!lst)
+	if (!s || !s->head)
 		return (NULL);
-	new = malloc(sizeof(lst));
-	if (!new)
-		return (NULL);
-	new->next = NULL;
-	new->op = ft_strdup(s);
-	if (!new->op)
-	{
-		free (new);
-		return (NULL);
-	}
-	if (!lst->head)
-		lst->head = new;
-	else
-		lst->tail->next = new;
-	return (new);
-}
-
-void	ft_print_ops(t_op_lst *ops)
-{
-	int	i;
-	t_op	*temp;
-
-	temp = ops->head;
+	temp = s->head;
+	max = s->head;
 	while (temp)
 	{
-		i = 0;
-		while (temp->op[i])
-		{
-			write(1, &temp->op[i], 1);
-			i++;
-		}
-		write(1, "\n", 1);
+		if (max->n < temp->n)
+			max = temp;
 		temp = temp->next;
 	}
+	return (max);
 }

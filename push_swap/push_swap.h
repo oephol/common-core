@@ -4,33 +4,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
-
-//structs/////////////////////
-typedef struct s_node
-{
-	int				n;
-	struct s_node	*next;
-	struct s_node	*prev;
-}	t_node;
-
-typedef struct s_stack
-{
-	t_node	*head;
-	t_node	*tail;
-	int		size;
-}	t_stack;
-
-typedef struct s_op
-{
-	char		*op;
-	struct s_op	*next;
-}	t_op;
-
-typedef	struct s_op_lst
-{
-	t_op	*head;
-	t_op	*tail;
-}	t_op_lst;
+# include "structs.h"
 
 //linked list operations
 t_node	*ft_new_node(int n);
@@ -51,15 +25,17 @@ void	reverse_rotate_rotate(t_stack *a, t_stack *b);
 
 //sorting functions
 void	insertion_sort(t_stack *a, t_stack *b, t_op_lst	*ops);
+void	bubble_sort(t_stack *a, t_op_lst *ops);
 
 //utils
 int		ft_atoi(const char *nptr);
 char	*ft_strdup(const char *s);
 t_op	*link_op_lst(t_op_lst *lst, char *s);
 void	ft_print_ops(t_op_lst *ops);
+t_node	*ft_get_max(t_stack *s);
 
-
-
+void	ft_do_op(char *op, t_op_lst *ops, t_stack *a, t_stack *b);
+int 	is_sorted(t_stack *a);
 
 
 // TODO remove
