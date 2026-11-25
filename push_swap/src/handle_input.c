@@ -45,9 +45,24 @@ int ft_isnumeric(char *s)
 	return (1);
 }
 
-int ft_get_args(t_stack *a, char **av, int ac, t_flags *flags)
+int	ft_duplicate(t_stack *a, int n)
+{
+	t_node	*temp;
+
+	temp = a->head;
+	while (temp)
+	{
+		if (n == temp->n)
+			return (1);
+		temp = temp->next;
+	}
+	return (0);
+}
+
+int ft_read_input(t_stack *a, t_flags *flags, char **av, int ac)
 {
 	int i;
+	int	n;
 
 	i = 1;
 	while (i < ac)
@@ -59,9 +74,12 @@ int ft_get_args(t_stack *a, char **av, int ac, t_flags *flags)
 		}
 		else
 		{
-			while (i < ac && ft_isnumeric(av[i]))
+			while (i < ac)
 			{
-				push_bottom(&a, ft_new_node(ft_atoi(av[i])));
+				n = ft_atoi(av[i]);
+				if (!ft_isnumeric(av[i]) || ft_duplicate(a, n))
+					return (-1);
+				push_bottom(&a, ft_new_node(n));
 				i++;
 			}
 		}

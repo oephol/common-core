@@ -10,6 +10,16 @@ void	swap(int *a, int *b)
 	*b = temp;
 }
 
+void	print(int *arr, int size)
+{
+	int	i = 0;
+
+	printf("[");
+	while (i < size - 1)
+		printf("%d, ", arr[i++]);
+	printf("%d]\n", arr[i]);
+}
+
 void	bubble_sort(int *arr, int n)
 {
 	int	i;
@@ -81,31 +91,55 @@ void	selection_sort(int *arr, int n)
 
 void	merge(int *arr, int n)
 {
-	
+	return ;
 }
 
-void	merge_sort(int *arr, int n)
+void	quick_sort(int *arr, int size)
 {
-	int mid = n / 2;
+	int	i, j;
 
-	if (n < 2)
+	if (size < 2)
 		return ;
-	merge_sort(arr, mid);
-	merge_sort(arr + mid + 1, n - mid);
-	merge(arr, n);
+	i = 0;
+	j = size - 2;
+	while (i <= j)
+	{
+		while (arr[i] < arr[size - 1])
+			i++;
+		while (arr[j] > arr[size - 1])
+			j--;
+		if (i <= j)
+		{
+			swap(arr + i, arr + j);
+			i++;
+			j--;
+		}
+	}
+	swap(arr + i, arr + size - 1);
+	print(arr, size);
+	quick_sort(arr, j + 1);
+	quick_sort(arr + i, size - i);
 }
+
+// void	merge_sort(int *arr, int n)
+// {
+// 	int mid = n / 2;
+
+// 	if (n < 2)
+// 		return ;
+// 	merge_sort(arr, mid);
+// 	merge_sort(arr + mid + 1, n - mid);
+// 	merge(arr, n);
+// }
 
 int	main(void)
 {
-	int	arr[] = {1, -2, -4, 15, 10, 4, 2, 0, 9, -10, 20, -3, 5};
+	int	arr[] = {1, -2, -4, 15, 10, 4, 2, 0, 9, 11, 8, -8, 20, -16, 13, 12, -3};
 	int	size = sizeof(arr)/sizeof(*arr);
 	int	i = 0;
 
 	//bubble_sort(arr, size);
 	//insertion_sort(arr, size);
-	selection_sort(arr, size);
-	printf("[");
-	while (i < size - 1)
-		printf("%d, ", arr[i++]);
-	printf("%d]\n", arr[i]);
+	quick_sort(arr, size);
+	print(arr, size);
 }

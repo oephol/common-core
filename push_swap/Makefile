@@ -18,7 +18,7 @@ all: $(NAME) clean
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $^ -o $(NAME)
 
-%.o: %.c push_swap.c
+%.o: %.c push_swap.h structs.h
 	$(CC) $(CFLAGS) -I. -c $< -o $@
 
 clean:

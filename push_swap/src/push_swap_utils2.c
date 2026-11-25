@@ -16,4 +16,24 @@ int is_sorted(t_stack *a)
     return (1);
 }
 
-void    ft_handle_error(t_stack *a, t_stack)
+// void    ft_handle_error(t_stack *a, t_stack *b, t_ops_lst *ops)
+// {
+//     ft_clear(a);
+//     ft_clear(b);
+//     ft_clear_
+// }
+
+// void    ft_optimise(t_op_lst *ops)
+// {
+//     t_op    *temp;
+
+//     temp = ops->head;
+//     while (temp)
+//     {
+//         if (!ft_strcmp(temp->op, "sa") && !ft_strcmp(temp->op, "sa"))
+//         {
+
+//         }
+//         temp = temp->next;
+//     }
+// }

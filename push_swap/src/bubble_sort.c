@@ -8,7 +8,7 @@ void bubble_sort(t_stack *a, t_op_lst *ops)
 	// int swaped;
 
 	max = ft_get_max(a);
-	print_list(a);
+	//print_list(a);
 	i = 0;
 	// swaped = 1;
 	while (i < a->size)// && swaped)

@@ -28,12 +28,12 @@ int	main()
     //printf("%d\n", a.size);
     //printf("max: %d\n", ft_get_max(&a));
 	push_swap(&a);
-	temp = a.head;
-	while(temp)
-	{
-		printf("%d, ", temp->n);
-		temp = temp->next;
-	}
+	// temp = a.head;
+	// while(temp)
+	// {
+	// 	printf("%d, ", temp->n);
+	// 	temp = temp->next;
+	// }
 	ft_clear(&a);
 	return (0);
 }

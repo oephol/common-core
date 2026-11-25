@@ -36,9 +36,9 @@ t_node	*ft_get_max(t_stack *s);
 
 void	ft_do_op(char *op, t_op_lst *ops, t_stack *a, t_stack *b);
 int 	is_sorted(t_stack *a);
-
+int 	ft_strcmp(const char *s1, const char *s2);
 
 // TODO remove
-void print_list(t_stack *a);
+void 	print_list(t_stack *a);
 
 #endif
