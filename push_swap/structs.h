@@ -25,6 +25,7 @@ typedef	struct s_op_list
 {
 	t_op_node	*head;
 	t_op_node	*tail;
+	char		**ops_names;
 }	t_op_list;
 
 typedef struct s_ops_count

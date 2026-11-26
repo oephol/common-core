@@ -6,7 +6,7 @@ t_op_node	*link_op_lst(t_op_list *lst, char *s)
 
 	if (!lst)
 		return (NULL);
-	new = malloc(sizeof(lst));
+	new = malloc(sizeof(t_op_list));
 	if (!new)
 		return (NULL);
 	new->next = NULL;
@@ -125,4 +125,11 @@ void	ft_do_op(char *op, t_op_list *ops, t_stack *a, t_stack *b)
 		reverse_rotate(b);
 	else if (flag == 11)
 		reverse_rotate_rotate(a, b);
+}
+
+char	**ft_ops_name_table(void)
+{
+	static char	*arr[] = {"sa", "sb", "ss", "pa", "pb", "ra", "rb", "rr", "rra", "rrb", "rrr"};
+
+	return (arr);
 }
