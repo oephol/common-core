@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-void insertion_sort(t_stack *a, t_stack *b, t_op_lst *ops)
+void insertion_sort(t_stack *a, t_stack *b, t_op_list *ops)
 {
 	t_node *max;
 	int i;

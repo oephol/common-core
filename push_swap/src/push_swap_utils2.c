@@ -23,9 +23,9 @@ int is_sorted(t_stack *a)
 //     ft_clear_
 // }
 
-// void    ft_optimise(t_op_lst *ops)
+// void    ft_optimise(t_op_list *ops)
 // {
-//     t_op    *temp;
+//     t_op_node   *temp;
 
 //     temp = ops->head;
 //     while (temp)

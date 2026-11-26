@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-void	push_swap(t_stack *a,t_op_lst *ops, t_flags *flags)
+void	push_swap(t_stack *a,t_op_list *ops, t_flags *flags)
 {
 	t_stack	b;
 
@@ -24,10 +24,10 @@ void print_list(t_stack *a)
 int	main(int argc, char **argv)
 {
 	t_stack		a;
-	t_op_lst	ops;
+	t_op_list	ops;
 	t_flags		flags;
 
-	ops = (t_op_lst){0};
+	ops = (t_op_list){0};
 	flags = (t_flags){0};
 	ft_read_input(&a, &flags, argv, argc);
     //print_list(&a);

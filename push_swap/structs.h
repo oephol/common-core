@@ -15,17 +15,17 @@ typedef struct s_stack
 	int		size;
 }	t_stack;
 
-typedef struct s_op
+typedef struct s_op_node
 {
-	char		*op;
-	struct s_op	*next;
-}	t_op;
+	char				*operation;
+	struct s_op_node	*next;
+}	t_op_node;
 
-typedef	struct s_op_lst
+typedef	struct s_op_list
 {
-	t_op	*head;
-	t_op	*tail;
-}	t_op_lst;
+	t_op_node	*head;
+	t_op_node	*tail;
+}	t_op_list;
 
 typedef struct s_ops_count
 {

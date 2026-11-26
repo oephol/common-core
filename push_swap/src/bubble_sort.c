@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-void bubble_sort(t_stack *a, t_op_lst *ops)
+void bubble_sort(t_stack *a, t_op_list *ops)
 {
 	t_node *max;
 	int i;

@@ -32,7 +32,7 @@ t_node	*ft_median_three(t_stack *s)
 	return (median);
 }
 
-// void	get_pivot_to_top(t_stack *a, t_stack *b, t_op_lst *ops)
+// void	get_pivot_to_top(t_stack *a, t_stack *b, t_op_list *ops)
 // {
 // 	t_node	*pivot;
 
@@ -44,7 +44,7 @@ t_node	*ft_median_three(t_stack *s)
 // 	}
 // }
 
-void	quick_sort(t_stack *a, t_stack *b, t_op_lst *ops, int size)
+void	quick_sort(t_stack *a, t_stack *b, t_op_list *ops, int size)
 {
 	t_node	*pivot;
 

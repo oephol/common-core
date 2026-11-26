@@ -1,8 +1,8 @@
 #include "push_swap.h"
 
-t_op	*link_op_lst(t_op_lst *lst, char *s)
+t_op_node	*link_op_lst(t_op_list *lst, char *s)
 {
-	t_op	*new;
+	t_op_node	*new;
 
 	if (!lst)
 		return (NULL);
@@ -10,8 +10,8 @@ t_op	*link_op_lst(t_op_lst *lst, char *s)
 	if (!new)
 		return (NULL);
 	new->next = NULL;
-	new->op = ft_strdup(s);
-	if (!new->op)
+	new->operation = ft_strdup(s);
+	if (!new->operation)
 	{
 		free (new);
 		return (NULL);
@@ -23,31 +23,31 @@ t_op	*link_op_lst(t_op_lst *lst, char *s)
 	return (new);
 }
 
-void	ft_clear_ops(t_op_lst *ops)
+void	ft_clear_ops(t_op_list *ops)
 {
-	t_op *temp;
+	t_op_node	*temp;
 
 	while (ops->head)
 	{
 		temp = ops->head;
 		ops->head = ops->head->next;
-		free(temp->op);
+		free(temp->operation);
 		free(temp);
 	}
 }
 
-void	ft_print_ops(t_op_lst *ops)
+void	ft_print_ops(t_op_list *ops)
 {
-	int	i;
-	t_op	*temp;
+	int			i;
+	t_op_node	*temp;
 
 	temp = ops->head;
 	while (temp)
 	{
 		i = 0;
-		while (temp->op[i])
+		while (temp->operation[i])
 		{
-			write(1, &temp->op[i], 1);
+			write(1, &temp->operation[i], 1);
 			i++;
 		}
 		write(1, "\n", 1);
@@ -75,7 +75,7 @@ static int	ft_record_op_second(char *op)
 	return (0);
 }
 
-static int	ft_record_op(char *op, t_op_lst *ops)
+static int	ft_record_op(char *op, t_op_list *ops)
 {
 	ops->tail = link_op_lst(ops, op);
 	if (op[0] == 's')
@@ -98,7 +98,7 @@ static int	ft_record_op(char *op, t_op_lst *ops)
 	return (0);
 }
 
-void	ft_do_op(char *op, t_op_lst *ops, t_stack *a, t_stack *b)
+void	ft_do_op(char *op, t_op_list *ops, t_stack *a, t_stack *b)
 {
 	int	flag;
 
