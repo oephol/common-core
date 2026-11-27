@@ -52,6 +52,7 @@ void	ft_print_bench(t_push_swap *ps, t_flags *flags);
 
 // utils
 void	ft_free_all(t_push_swap *ps, int status);
+void	ft_error(t_push_swap *ps);
 void	ft_bzero(void *mem, int size);
 
 #endif
