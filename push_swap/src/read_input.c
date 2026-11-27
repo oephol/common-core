@@ -9,27 +9,34 @@ int ft_strcmp(const char *s1, const char *s2)
 		i++;
 	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }
-int ft_set_flags(char *s, t_flags *flags)
+static int	ft_is_multi_flags(t_flags *flags)
 {
-	int i;
-
-	i = 0;
-	if (!ft_strcmp(s, "simple"))
-		flags->simple = 1;
-	else if (!ft_strcmp(s, "medium"))
-		flags->medium = 1;
-	else if (!ft_strcmp(s, "complex"))
-		flags->complex = 1;
-	else if (!ft_strcmp(s, "adaptive"))
-		flags->adaptive = 1;
-	else if (!ft_strcmp(s, "bench"))
+	if (flags->simple == 0 && flags->medium == 0 && flags->complex == 0\
+	&& flags->adaptive == 0)
+		return (0);
+	return (1);
+}
+static int	ft_set_flags(char *s, t_flags *flags)
+{
+	if (!ft_strcmp(s, "bench"))
 		flags->bench = 1;
+	else if (!ft_is_multi_flags(flags))
+	{
+		if (!ft_strcmp(s, "simple"))
+			flags->simple = 1;
+		else if (!ft_strcmp(s, "medium"))
+			flags->medium = 1;
+		else if (!ft_strcmp(s, "complex"))
+			flags->complex = 1;
+		else if (!ft_strcmp(s, "adaptive"))
+			flags->adaptive = 1;
+	}
 	else
 		return (-1);
 	return (1);
 }
 
-int ft_isnumeric(char *s)
+static int ft_is_number(char *s)
 {
 	int i;
 
@@ -45,48 +52,46 @@ int ft_isnumeric(char *s)
 	return (1);
 }
 
-int	ft_duplicate(t_stack *a, int n)
+static int	ft_exist_dup(t_stack *a, int n)
 {
+	int		i;
 	t_node	*temp;
 
+	i = 0;
+	if (!a->head)
+		return (0);
 	temp = a->head;
-	while (temp)
+	while (i < a->size)
 	{
 		if (n == temp->n)
 			return (1);
 		temp = temp->next;
+		i++;
 	}
 	return (0);
 }
 
-int ft_read_input(t_stack *a, t_flags *flags, char **av, int ac)
+int	ft_parse_input(t_flags *flags, t_stack *a, int ac, char **av)
 {
-	int i;
 	int	n;
+	int	i;
 
-	i = 1;
-	while (i < ac)
+	i = 0;
+	while (i < ac && (av[i][0] == '-' && av[i][1] == '-'))
 	{
-		if (av[i][0] == '-' && av[i][1] == '-')
-		{
-			ft_set_flags(av[i] + 2, flags);
-			i++;
-		}
-		else
-		{
-			while (i < ac)
-			{
-				n = ft_atoi(av[i]);
-				if (!ft_isnumeric(av[i]) || ft_duplicate(a, n))
-					return (-1);
-				push_bottom(a, ft_new_node(n));
-				i++;
-			}
-		}
-		if (av)
+		if (ft_set_flags(av[i] + 2, flags) == -1)
+			return (-1);
 		i++;
 	}
-	return (0);
+	while (i < ac)
+	{
+		n = ft_atoi(av[i]);
+		if (!ft_is_number(av[i]) || ft_exist_dup(a, n))
+			return (-1);
+		push_bottom(a, ft_new_node(n));
+		i++;
+	}
+	return (1);
 }
 
 float ft_disorder(t_stack *a)
