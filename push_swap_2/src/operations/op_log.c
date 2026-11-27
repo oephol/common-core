@@ -12,7 +12,7 @@ static t_op_node	*ft_new_op_node(t_operation op)
 	return(new);
 }
 
-t_node	*ft_append_log(t_op_log *log, t_operation op)
+t_op_node	*ft_append_log(t_op_log *log, t_operation op)
 {
 	t_op_node	*node;
 

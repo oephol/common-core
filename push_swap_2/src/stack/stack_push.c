@@ -11,7 +11,7 @@ void	ft_push_top(t_stack *stack, t_node *node)
 		node->next = stack->head;
 		node->prev = stack->head;
 	}
-	else
+	else if (stack->size > 1)
 	{
 		node->next = stack->head;
 		node->prev = stack->head->prev;

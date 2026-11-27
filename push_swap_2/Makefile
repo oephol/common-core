@@ -23,7 +23,7 @@ STACK = src/stack/node_utils.c \
 UTILS = src/utils/free_all.c \
 		src/utils/utils_1.c
 
-SRC = push_swap.c $(INPUT) $(OPERATIONS) $(STACK) $(UTILS)
+SRC = push_swap.c temp.c $(INPUT) $(OPERATIONS) $(STACK) $(UTILS)
 
 OBJ = $(SRC:.c=.o)
 

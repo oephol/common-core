@@ -18,6 +18,6 @@ void	ft_op_ss(t_push_swap *ps)
 {
 	if (!ft_append_log(&ps->log, op_ss))
 		ft_free_all(ps, 1);
-	ft_swap_a(ps);
-	ft_swap_b(ps);
+	ft_swap(&ps->a);
+	ft_swap(&ps->b);
 }

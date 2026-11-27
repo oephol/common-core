@@ -14,7 +14,7 @@ static void	ft_print_op(t_operation op)
 	write(1, "\n", 1);
 }
 
-void	ft_print_opretions(t_push_swap *ps, t_flags *flags)
+void	ft_print_operations(t_push_swap *ps, t_flags *flags)
 {
 	t_op_node	*node;
 

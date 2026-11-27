@@ -6,7 +6,7 @@
 /*   By: oezzahi <oezzahi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/27 10:50:27 by oezzahi           #+#    #+#             */
-/*   Updated: 2026/11/27 14:49:29 by oezzahi          ###   ########.fr       */
+/*   Updated: 2026/11/27 23:04:51 by oezzahi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,11 @@ static int	ft_is_multi_flags(t_flags *flags)
 static int	ft_set_flags(char *s, t_flags *flags)
 {
 	if (!ft_strcmp(s, "bench"))
+	{
+		if (flags->bench == 1)
+			return (-1);
 		flags->bench = 1;
+	}
 	else if (!ft_is_multi_flags(flags))
 	{
 		if (!ft_strcmp(s, "simple"))
@@ -33,6 +37,8 @@ static int	ft_set_flags(char *s, t_flags *flags)
 			flags->complex = 1;
 		else if (!ft_strcmp(s, "adaptive"))
 			flags->adaptive = 1;
+		else
+			return (-1);
 	}
 	else
 		return (-1);
@@ -79,7 +85,7 @@ int	ft_parse_input(t_flags *flags, t_stack *a, int ac, char **av)
 	int	n;
 	int	i;
 
-	i = 0;
+	i = 1;
 	while (i < ac && (av[i][0] == '-' && av[i][1] == '-'))
 	{
 		if (ft_set_flags(av[i] + 2, flags) == -1)
@@ -91,7 +97,7 @@ int	ft_parse_input(t_flags *flags, t_stack *a, int ac, char **av)
 		n = ft_atoi(av[i]);
 		if (!ft_is_number(av[i]) || ft_exist_dup(a, n))
 			return (-1);
-		push_bottom(a, ft_new_node(n));
+		ft_push_bottom(a, ft_new_node(n));
 		i++;
 	}
     if (!ft_is_multi_flags(flags))
