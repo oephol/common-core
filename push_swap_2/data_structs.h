@@ -50,20 +50,20 @@ typedef struct s_push_swap
 
 typedef struct s_bench_info
 {
-	float		disorder;
-	int			strategy;
-	int			total_ops;
-	t_operation	operations[11];
+	float	disorder;
+	int		strategy;
+	int		total_ops;
+	int		op_count[11];
 }	t_bench;
 
 typedef struct s_flags
 {
+	t_bench	bench_info;
 	int		simple;
 	int		medium;
 	int		complex;
 	int		adaptive;
 	int		bench;
-	t_bench	bench_info;
 }	t_flags;
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: oezzahi <oezzahi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/27 10:50:27 by oezzahi           #+#    #+#             */
-/*   Updated: 2026/11/27 10:58:19 by oezzahi          ###   ########.fr       */
+/*   Updated: 2026/11/27 14:49:29 by oezzahi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,5 +94,7 @@ int	ft_parse_input(t_flags *flags, t_stack *a, int ac, char **av)
 		push_bottom(a, ft_new_node(n));
 		i++;
 	}
+    if (!ft_is_multi_flags(flags))
+        flags->adaptive = 1;
 	return (1);
 }
