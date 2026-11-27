@@ -116,7 +116,6 @@ void	quick_sort(int *arr, int size)
 		}
 	}
 	swap(arr + i, arr + size - 1);
-	print(arr, size);
 	quick_sort(arr, j + 1);
 	quick_sort(arr + i, size - i);
 }

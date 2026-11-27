@@ -12,15 +12,18 @@ void	ft_replace(t_op_list *ops, t_op_node *a, t_op_node *b, char *op)
 	new->operation = ft_strdup(op);
 	temp1 = ops->head;
 	if (temp1 != a)
+		ops->head = new;
+	else
+	{
 		while (temp1->next != a)
 			temp1 = temp1->next;
-	temp1->next = new;
+		temp1->next = new;
+	}
 	new->next = b->next;
-	temp1 = temp2->next;
-	free(temp2->operation);
-	free(temp2);
-	free(temp1->operation);
-	free(temp1);
+	free(a->operation);
+	free(a);
+	free(b->operation);
+	free(b);
 }
 
 void	ft_cancel(t_op_list *ops)
