@@ -1,16 +1,29 @@
 NAME = push_swap
 CC = cc
 CFLAGS = -g #-Wall -Wextra -Werror
-SRC =	src/bubble_sort.c \
-		src/linked_list.c \
-		src/push_swap_ops1.c \
-		src/push_swap_utils1.c \
-		src/insertion_sort.c \
-		src/push_swap_ops2.c \
-		src/recording_ops.c \
-		src/push_swap_utils2.c \
-		src/read_input.c \
-		push_swap.c
+INPUT =	src/input/input_utils.c \
+		src/input/parse_input.c
+
+OPERATIONS = src/operations/op_log.c \
+			src/operations/op_push.c \
+			src/operations/op_rotate.c \
+			src/operations/op_swap.c \
+			src/operations/op_reverse_rotate.c
+
+OUTPUT = src/output/print_bench.c \
+		src/output/print_operations.c \
+		src/output/print_bench_utils.c
+
+STACK = src/stack/node_utils.c \
+		src/stack/stack_pop.c \
+		src/stack/stack_push.c \
+		src/stack/stack_rotate.c \
+		src/stack/stack_swap.c
+
+UTILS = src/utils/free_all.c \
+		src/utils/utils_1.c
+
+SRC = push_swap.c $(INPUT) $(OPERATIONS) $(STACK) $(UTILS)
 
 OBJ = $(SRC:.c=.o)
 
@@ -19,7 +32,7 @@ all: $(NAME) clean
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $^ -o $(NAME)
 
-%.o: %.c push_swap.h structs.h
+%.o: %.c push_swap.h data_structs.h
 	$(CC) $(CFLAGS) -I. -c $< -o $@
 
 clean:

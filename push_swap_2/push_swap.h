@@ -45,6 +45,7 @@ t_node	*ft_append_log(t_op_log *log, t_operation op);
 void	ft_clear_log(t_op_log *log);
 
 //output
+void	ft_print_opretions(t_push_swap *ps, t_flags *flags);
 void	ft_count_operatins(t_op_log *log, t_bench *bench);
 void	ft_print_int(int x);
 void	ft_print_disorder(float x);
@@ -54,5 +55,7 @@ void	ft_print_bench(t_push_swap *ps, t_flags *flags);
 void	ft_free_all(t_push_swap *ps, int status);
 void	ft_error(t_push_swap *ps);
 void	ft_bzero(void *mem, int size);
+float	ft_disorder(t_stack *a, t_node *temp1, t_node *temp2);
+int		ft_set_strategy(t_flags *flags)
 
 #endif
