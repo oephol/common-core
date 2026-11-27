@@ -1,50 +1,6 @@
 #include "./../../push_swap.h"
 
-void	ft_count_operatins(t_op_log *log, t_bench *bench)
-{
-	t_op_node	*node;
-
-	node = log->head;
-	while (node)
-	{
-		bench->total_ops++;
-		bench->op_count[node->operation]++;
-		node = node->next;
-	}
-}
-void	ft_print_int(int x)
-{
-	char	c;
-
-	if (x < 10)
-	{
-		c = x % 10 + '0';
-		write(2, &c, 1);
-	}
-	else
-	{
-		ft_print_int(x / 10);
-		c = x % 10 + '0';
-		write(2, &c, 1);
-	}
-}
-void	ft_print_disorder(float x)
-{
-		int	n;
-
-	n = (int)x;
-	if (n < 10)
-		write (2, "0", 1);
-	ft_print_int(n);
-	write(2, ".", 1);
-	n = (x - n) * 100;
-	if (n)
-		ft_print_int(n);
-	else
-		write(2, "00", 2);
-}
-
-void	ft_print_flag(t_flags *flags)
+static void	ft_print_flag(t_flags *flags)
 {
 	if (flags->adaptive)
 		write(2, "adaptive / ", 11);
@@ -56,7 +12,7 @@ void	ft_print_flag(t_flags *flags)
 		write(2, "complex / ", 10);
 }
 
-void	ft_print_strategy(int s)
+static void	ft_print_strategy(int s)
 {
 	if (s == 1)
 		write(2, "O(n^2)\n", 7);
@@ -68,6 +24,34 @@ void	ft_print_strategy(int s)
 	}
 	else if (s == 3)
 		write(2, "O(n log n)\n", 11);
+}
+
+static void	ft_print_op_count(int *arr)
+{
+	write(2, "[bench] sa: ", 12);
+	ft_print_int(arr[0]);
+	write(2, " sb: ", 5);
+	ft_print_int(arr[1]);
+	write(2, " ss: ", 5);
+	ft_print_int(arr[2]);
+	write(2, " pa: ", 5);
+	ft_print_int(arr[3]);
+	write(2, " pb: ", 5);
+	ft_print_int(arr[4]);
+	write(2, "\n", 1);
+	write(2, "[bench] ra: ", 12);
+	ft_print_int(arr[5]);
+	write(2, " rb: ", 5);
+	ft_print_int(arr[6]);
+	write(2, " rr: ", 5);
+	ft_print_int(arr[7]);
+	write(2, " rra: ", 5);
+	ft_print_int(arr[8]);
+	write(2, " rrb: ", 5);
+	ft_print_int(arr[9]);
+	write(2, " rrr: ", 5);
+	ft_print_int(arr[10]);
+	write(2, "\n", 1);
 }
 
 void	ft_print_bench(t_push_swap *ps, t_flags *flags)
@@ -82,6 +66,5 @@ void	ft_print_bench(t_push_swap *ps, t_flags *flags)
 	write(2, "[bench] total_ops: ", 19);
 	ft_print_int(flags->bench_info.total_ops);
 	write(2, "\n", 1);
-	
-
+	ft_print_op_count(flags->bench_info.op_count);
 }
