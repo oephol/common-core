@@ -12,10 +12,12 @@ static void	ft_pop_push(t_stack *s1, t_stack *s2)
 
 void	ft_op_pa(t_push_swap *ps)
 {
+	ft_append_log(&ps->log, op_pa);
 	ft_pop_push(&ps->b, &ps->a);
 }
 
 void	ft_op_pb(t_push_swap *ps)
 {
+	ft_append_log(&ps->log, op_pb);
 	ft_pop_push(&ps->a, &ps->b);
 }
