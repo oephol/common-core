@@ -62,10 +62,10 @@ void	ft_sort_top_three(t_push_swap *ps);
 void	ft_sort_turk(t_push_swap *ps);
 
 //sorting utils
-int ft_is_sorted(t_stack *stack);
+int 	ft_is_sorted(t_stack *stack);
 t_node	*ft_get_max(t_stack *stack);
 t_node	*ft_get_min(t_stack *stack);
-
+int		ft_get_position(t_stack *stack, t_node *node);
 // utils
 void		ft_free_all(t_push_swap *ps, int status);
 void		ft_error(t_push_swap *ps);

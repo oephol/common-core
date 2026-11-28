@@ -18,14 +18,19 @@ int ft_is_sorted(t_stack *stack)
     return (1);
 }
 
-int	ft_get_position(t_stack *stack, t_node)
+int	ft_get_position(t_stack *stack, t_node *node)
 {
-	int	pos;
-	t_node	*node;
+	int		pos;
+	t_node	*temp;
 
-	node = stack->head;
-	while ()
-
+	pos = 1;
+	temp = stack->head;
+	while (temp != node)
+	{
+		pos++;
+		temp = temp->next;
+	}
+	return (pos);
 }
 
 t_node	*ft_get_max(t_stack *stack)
