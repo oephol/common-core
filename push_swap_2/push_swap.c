@@ -29,6 +29,5 @@ int	main(int argc, char **argv)
 	ft_push_swap(&ps, &flags);
 	//ft_print_list(&ps.a);
 	printf("sorted: %s\n", ft_is_sorted(&ps.a) ? "yes" : "no");
-	printf("\ndisorder: %f\n", flags.bench_info.disorder);
 	return (0);
 }

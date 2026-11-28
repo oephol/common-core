@@ -24,20 +24,18 @@ double	ft_disorder(t_stack *a, t_node *temp1, t_node *temp2)
 	temp1 = a->head;
 	disorder = 0;
 	i = 0;
-	while (i < a->size)
+	while (i++ < a->size)
 	{
-		temp2 = a->head;
-		j = 0;
-		while (j < a->size)
+		temp2 = temp1->next;
+		j = i;
+		while (j++ < a->size)
 		{
 			pairs++;
 			if (temp1->value > temp2->value)
 				disorder++;
 			temp2 = temp2->next;
-			j++;
 		}
 		temp1 = temp1->next;
-		i++;
 	}
 	return ((double)disorder / pairs);
 }
