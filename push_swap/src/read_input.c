@@ -94,7 +94,7 @@ int	ft_parse_input(t_flags *flags, t_stack *a, int ac, char **av)
 	return (1);
 }
 
-float ft_disorder(t_stack *a)
+double ft_disorder(t_stack *a)
 {
 	int disorder;
 	int pairs;
@@ -115,5 +115,5 @@ float ft_disorder(t_stack *a)
 		}
 		temp1 = temp1->next;
 	}
-	return ((float)disorder / pairs);
+	return ((double)disorder / pairs);
 }

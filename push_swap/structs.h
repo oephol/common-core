@@ -45,7 +45,7 @@ typedef struct s_ops_count
 
 typedef struct s_bench_info
 {
-	float		disorder;
+	double		disorder;
 	int			strategy;
 	int			total_ops;
 	t_ops_count	ops_count;
