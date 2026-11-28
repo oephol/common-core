@@ -1,6 +1,7 @@
 NAME = push_swap
 CC = cc
 CFLAGS = -g #-Wall -Wextra -Werror
+
 INPUT =	src/input/input_utils.c \
 		src/input/parse_input.c
 
@@ -22,6 +23,8 @@ STACK = src/stack/node_utils.c \
 
 UTILS = src/utils/free_all.c \
 		src/utils/utils_1.c
+		
+#remove temp.c
 
 SRC = push_swap.c temp.c $(INPUT) $(OPERATIONS) $(STACK) $(UTILS)
 

@@ -2,15 +2,23 @@
 
 void	ft_op_ra(t_push_swap *ps)
 {
-	if (!ft_append_log(&ps->log, op_ra))
-		ft_free_all(ps, 1);
+	t_operation	insert;
+
+	insert = op_ra;
+	if (ft_optimise_swap(&ps->log, &insert))
+		if (!ft_append_log(&ps->log, insert))
+			ft_free_all(ps, 1);
 	ft_rotate(&ps->a);
 }
 
 void	ft_op_rb(t_push_swap *ps)
 {
-	if (!ft_append_log(&ps->log, op_rb))
-		ft_free_all(ps, 1);
+	t_operation	insert;
+
+	insert = op_rb;
+	if (ft_optimise_swap(&ps->log, &insert))
+		if (!ft_append_log(&ps->log, insert))
+			ft_free_all(ps, 1);
 	ft_rotate(&ps->b);
 }
 

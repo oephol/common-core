@@ -39,6 +39,12 @@ void		ft_op_rra(t_push_swap *ps);
 void		ft_op_rrb(t_push_swap *ps);
 void		ft_op_rrr(t_push_swap *ps);
 
+//log optimisation
+int	ft_optimise_swap(t_op_log *log, t_operation *op);
+int	ft_optimise_push(t_op_log *log, t_operation op);
+int	ft_optimise_rotate(t_op_log *log, t_operation *op);
+int	ft_optimise_rev_rot(t_op_log *log, t_operation *op);
+
 //log operations
 t_op_node	*ft_append_log(t_op_log *log, t_operation op);
 void		ft_clear_log(t_op_log *log);
@@ -50,6 +56,13 @@ void		ft_count_operatins(t_op_log *log, t_bench *bench);
 void		ft_print_int(int x);
 void		ft_print_disorder(float x);
 void		ft_print_bench(t_push_swap *ps, t_flags *flags);
+
+//sorting
+
+//sorting utils
+int is_sorted(t_stack *stack);
+t_node	*ft_get_max(t_stack *stack);
+t_node	*ft_get_min(t_stack *stack);
 
 // utils
 void		ft_free_all(t_push_swap *ps, int status);

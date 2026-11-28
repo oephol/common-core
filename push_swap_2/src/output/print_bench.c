@@ -58,7 +58,7 @@ void	ft_print_bench(t_push_swap *ps, t_flags *flags)
 {
 	ft_count_operatins(&ps->log, &flags->bench_info);
 	write(2, "[bench] disorder: ", 18);
-	ft_print_disorder(flags->bench_info.disorder);
+	ft_print_disorder(flags->bench_info.disorder * 100);
 	write(2, "%\n", 2);
 	write(2, "[bench] strategy: ", 18);
 	ft_print_flag(flags);

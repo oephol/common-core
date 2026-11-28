@@ -1,33 +1,59 @@
 #include "./../../push_swap.h"
 
-// void	ft_sort_three(t_push_swap *ps)
-// {
-// 	t_node	*node;
-// 	int		i = 0;
-
-// 	i = 0;
-// 	node = ps->a.head;
-// 	if (ps->a.size != 3)
-// 		return ;
-// 	while (i < 3)
-// 	{
-// 		if ()
-// 	}
-// }
-
-void	ft_sort_top_three(t_push_swap *ps)
+int is_sorted(t_stack *stack)
 {
-	if (ps->a.head->value > ps->a.head->next->value)
-		ft_op_sa(ps);
-	ft_op_ra(ps);
-	if (ps->a.head->value > ps->a.head->next->value)
-		ft_op_sa(ps);
-	ft_op_rra(ps);
-	if (ps->a.head->value > ps->a.head->next->value)
-		ft_op_sa(ps);
+    t_node *node;
+	int		i;
+
+    if (!stack || stack->size < 2)
+        return (1);
+	i = 0;
+    node = stack->head;
+    while (i++ < stack->size)
+    {
+        if (node->value > node->next->value)
+            return (0);
+        node = node->next;
+    }
+    return (1);
 }
 
-void	ft_sort_turk(t_push_swap *ps)
+t_node	*ft_get_max(t_stack *stack)
 {
-	
+	t_node	*node;
+	int		i;
+	t_node	*max;
+
+	if (!stack || !stack->head)
+		return (NULL);
+	node = stack->head;
+	max = stack->head;
+	i = 0;
+	while (i++ < stack->size)
+	{
+		if (max->value < node->value)
+			max = node;
+		node = node->next;
+	}
+	return (max);
+}
+
+t_node	*ft_get_min(t_stack *stack)
+{
+	t_node	*node;
+	t_node	*min;
+	int		i;
+
+	if (!stack || !stack->head)
+		return (NULL);
+	node = stack->head;
+	min = stack->head;
+	i = 0;
+	while (i++ < stack->size)
+	{
+		if (min->value > node->value)
+			min = node;
+		node = node->next;
+	}
+	return (min);
 }
