@@ -42,6 +42,7 @@ void		ft_op_rrr(t_push_swap *ps);
 //log operations
 t_op_node	*ft_append_log(t_op_log *log, t_operation op);
 void		ft_clear_log(t_op_log *log);
+void		ft_delone_op(t_op_log *log, t_op_node *todel);
 
 //output
 void		ft_print_operations(t_push_swap *ps, t_flags *flags);

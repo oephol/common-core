@@ -45,3 +45,22 @@ void	ft_clear_log(t_op_log *log)
 	log->tail = NULL;
 }
 
+void	ft_delone_op(t_op_log *log, t_op_node *todel)
+{
+	t_op_node	*node;
+
+	if (!log || !log->head || !todel)
+		return ;
+	node = log->head;
+	if (node == todel)
+	{
+		free (todel);
+		log->head = NULL;
+		log->tail = NULL;
+		return ;
+	}
+	while (node->next != todel)
+		node = node->next;
+	free(todel);
+	log->tail = node;
+}
