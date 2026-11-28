@@ -28,7 +28,7 @@ void	ft_print_int(int x)
 		write(2, &c, 1);
 	}
 }
-void	ft_print_disorder(float x)
+void	ft_print_disorder(double x)
 {
 		int	n;
 

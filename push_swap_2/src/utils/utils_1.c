@@ -14,7 +14,7 @@ void	ft_bzero(void *mem, int size)
 	}
 }
 
-float	ft_disorder(t_stack *a, t_node *temp1, t_node *temp2)
+double	ft_disorder(t_stack *a, t_node *temp1, t_node *temp2)
 {
 	int disorder;
 	int pairs;
@@ -39,7 +39,7 @@ float	ft_disorder(t_stack *a, t_node *temp1, t_node *temp2)
 		temp1 = temp1->next;
 		i++;
 	}
-	return ((float)disorder / pairs);
+	return ((double)disorder / pairs);
 }
 
 int	ft_set_strategy(t_flags *flags)

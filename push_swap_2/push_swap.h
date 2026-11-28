@@ -54,7 +54,7 @@ void		ft_delone_op(t_op_log *log, t_op_node *todel);
 void		ft_print_operations(t_push_swap *ps, t_flags *flags);
 void		ft_count_operatins(t_op_log *log, t_bench *bench);
 void		ft_print_int(int x);
-void		ft_print_disorder(float x);
+void		ft_print_disorder(double x);
 void		ft_print_bench(t_push_swap *ps, t_flags *flags);
 
 //sorting
@@ -62,7 +62,7 @@ void	ft_sort_top_three(t_push_swap *ps);
 void	ft_sort_turk(t_push_swap *ps);
 
 //sorting utils
-int is_sorted(t_stack *stack);
+int ft_is_sorted(t_stack *stack);
 t_node	*ft_get_max(t_stack *stack);
 t_node	*ft_get_min(t_stack *stack);
 
@@ -70,7 +70,7 @@ t_node	*ft_get_min(t_stack *stack);
 void		ft_free_all(t_push_swap *ps, int status);
 void		ft_error(t_push_swap *ps);
 void		ft_bzero(void *mem, int size);
-float		ft_disorder(t_stack *a, t_node *temp1, t_node *temp2);
+double		ft_disorder(t_stack *a, t_node *temp1, t_node *temp2);
 int			ft_set_strategy(t_flags *flags);
 
 

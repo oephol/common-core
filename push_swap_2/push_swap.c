@@ -24,9 +24,11 @@ int	main(int argc, char **argv)
 		ft_error(&ps);
 	flags.bench_info.disorder = ft_disorder(&ps.a, 0, 0);
 	flags.bench_info.strategy = ft_set_strategy(&flags);
-	ft_print_list(&ps.a);
+	//ft_print_list(&ps.a);
 	printf("\nsize: %d\n", ps.a.size);
 	ft_push_swap(&ps, &flags);
-	ft_print_list(&ps.a);
+	//ft_print_list(&ps.a);
+	printf("sorted: %s\n", ft_is_sorted(&ps.a) ? "yes" : "no");
+	printf("\ndisorder: %f\n", flags.bench_info.disorder);
 	return (0);
 }

@@ -2,7 +2,7 @@
 
 void	ft_sort_top_three(t_push_swap *ps)
 {
-	if (is_sorted(&ps->a))
+	if (ft_is_sorted(&ps->a))
 		return ;
 	if (ps->a.size == 2)
 	{

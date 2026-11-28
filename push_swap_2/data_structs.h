@@ -50,7 +50,7 @@ typedef struct s_push_swap
 
 typedef struct s_bench_info
 {
-	float	disorder;
+	double	disorder;
 	int		strategy;
 	int		total_ops;
 	int		op_count[11];
