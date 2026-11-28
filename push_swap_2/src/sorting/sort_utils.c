@@ -7,7 +7,7 @@ int is_sorted(t_stack *stack)
 
     if (!stack || stack->size < 2)
         return (1);
-	i = 0;
+	i = 1;
     node = stack->head;
     while (i++ < stack->size)
     {

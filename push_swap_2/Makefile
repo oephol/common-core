@@ -9,11 +9,17 @@ OPERATIONS = src/operations/op_log.c \
 			src/operations/op_push.c \
 			src/operations/op_rotate.c \
 			src/operations/op_swap.c \
-			src/operations/op_reverse_rotate.c
+			src/operations/op_reverse_rotate.c \
+			src/operations/op_log_optimise.c
 
 OUTPUT = src/output/print_bench.c \
 		src/output/print_operations.c \
 		src/output/print_bench_utils.c
+
+SORTING = src/sorting/simple_sort.c \
+		src/sorting/medium_sort.c \
+		src/sorting/complex_sort.c \
+		src/sorting/sort_utils.c
 
 STACK = src/stack/node_utils.c \
 		src/stack/stack_pop.c \
@@ -26,7 +32,7 @@ UTILS = src/utils/free_all.c \
 		
 #remove temp.c
 
-SRC = push_swap.c temp.c $(INPUT) $(OPERATIONS) $(STACK) $(UTILS)
+SRC = push_swap.c temp.c $(INPUT) $(OPERATIONS) $(OUTPUT) $(SORTING) $(STACK) $(UTILS)
 
 OBJ = $(SRC:.c=.o)
 
@@ -36,7 +42,7 @@ $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $^ -o $(NAME)
 
 %.o: %.c push_swap.h data_structs.h
-	$(CC) $(CFLAGS) -I. -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	rm -f $(OBJ)

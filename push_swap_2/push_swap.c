@@ -2,13 +2,13 @@
 
 void    ft_push_swap(t_push_swap *ps, t_flags *flags)
 {
-	//if (flags->bench_info.strategy == 1)
-	//	ft_simple_algo(ps);
+	if (flags->bench_info.strategy == 1)
+		ft_sort_turk(ps);
 	//else if (flags->bench_info.strategy == 2)
 	//	ft_meduim_algo(ps);
 	//else
 	//	ft_complex_algo(ps);
-	//ft_print_operations(ps, flags);
+	ft_print_operations(ps, flags);
 }
 
 int	main(int argc, char **argv)
@@ -26,6 +26,7 @@ int	main(int argc, char **argv)
 	flags.bench_info.strategy = ft_set_strategy(&flags);
 	ft_print_list(&ps.a);
 	printf("\nsize: %d\n", ps.a.size);
-	//ft_push_swap(&ps, &flags);
+	ft_push_swap(&ps, &flags);
+	ft_print_list(&ps.a);
 	return (0);
 }

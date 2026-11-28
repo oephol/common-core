@@ -58,6 +58,8 @@ void		ft_print_disorder(float x);
 void		ft_print_bench(t_push_swap *ps, t_flags *flags);
 
 //sorting
+void	ft_sort_top_three(t_push_swap *ps);
+void	ft_sort_turk(t_push_swap *ps);
 
 //sorting utils
 int is_sorted(t_stack *stack);

@@ -1,15 +1,13 @@
 #include "./../../push_swap.h"
 
-static void	ft_pop(t_stack *stack, t_node	*node)
+static void	ft_pop(t_stack *stack, t_node *node)
 {
-	if (stack->size == 1)
-		return ;
 	if (stack->size == 2)
 	{
 		stack->head->prev = NULL;
 		stack->head->next = NULL;
 	}
-	else
+	else if (stack->size > 2)
 	{
 		node->prev->next = node->next;
 		node->next->prev = node->prev;
